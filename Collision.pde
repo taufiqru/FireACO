@@ -1,23 +1,27 @@
 /*Collision Detection when adding Fire into Simulation */
 
 void cekCollision(Fire f){
+  int i=0;
   for(Track t: Tracks){
     if(lineRect(t.startX,t.startY,t.endX,t.endY,f.x,f.y,f.w,f.h))
     {
       println("Bersinggungan dengan : "+t.label);
-    }else{
-     // println("Tidak Bersinggungan");
+      Tracks.get(i).blockedbyfire = true;
+      println(Tracks.get(i).blockedbyfire);
     }
+    i++;
   }
 }
 
 void hapusApi(float x,float y){
-  int count = 0;
   for(Fire f:fire){
     if(pointRect(x,y,f.x,f.y,f.w,f.h)){
       f.status=false;
+      for(int i =f.block.size()-1;i>=0;i--){
+        f.block.get(i).blockedbyfire=false;
+        f.block.remove(i);
+      }
     }
-    count++;
   }
 }
 

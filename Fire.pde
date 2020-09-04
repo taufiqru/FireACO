@@ -1,4 +1,5 @@
 ArrayList<Fire> fire = new ArrayList<Fire>();
+Float fireImportance = 1.0;
 
 void displayFire(){
   for(int i= fire.size()-1; i>=0;i--){
@@ -8,13 +9,9 @@ void displayFire(){
       fire.remove(i);
     }
   }
-  
-  
-  for(Fire f: fire){
-   
-  }
 }
 class Fire{
+  ArrayList<Track> block = new ArrayList<Track>();
   int w = 20;
   int h = 20;
   float x,y;
@@ -26,7 +23,7 @@ class Fire{
   
   void display(){
     fill(255,0,0);
-    //rectMode(CENTER);
+    rectMode(CENTER);
     rect(x,y,w,h);
   }
 }

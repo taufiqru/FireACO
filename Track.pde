@@ -33,14 +33,31 @@ ArrayList<Integer> searchTrack(Node x){
   int i= 0 ;
   for(Track t:Tracks){
     if(t.startX==x.x && t.startY == x.y){
-      //search node (t.endX && t.endY) yang belum ada di tabu list 
-      if(searchNodeTabu(t.endX,t.endY)==-1){
-        listTrack.add(i);
+      if(searchNodeTabu(t.endX,t.endY)==-1){  //search node (t.endX && t.endY) yang belum ada di tabu list 
+        println("ada api? "+t.blockedbyfire);
+        if(!t.blockedbyfire){
+          listTrack.add(i);
+        }
       }
     }
     i++;
   }
   return listTrack;
+}
+
+Boolean checkFire(Track t){
+  if(t.blockedbyfire){
+    float rand = random(0.0,1.0);
+    
+    println("nilai random:"+rand+", nilai cfire :"+cfire);
+    
+    if(rand<=cfire){
+      return true;
+    }
+  }else{
+    return false;
+  }
+  return false;
 }
 
 void addTrack(Track x){
@@ -58,6 +75,7 @@ class Track{
  float startX,startY,endX,endY,distance;
  double pheromone;
  String label,tipe;
+ Boolean blockedbyfire;
  
  Textlabel myTextlabel;
  
@@ -71,6 +89,7 @@ class Track{
    this.endY = eY;
    this.distance = distance;
    this.pheromone = 1;
+   this.blockedbyfire = false;
    this.setup();
  }
  

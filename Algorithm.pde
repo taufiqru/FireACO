@@ -67,9 +67,6 @@ double RoulleteWheel(ArrayList<Double> prob){
   String rolet="";
   String val="";
   //
-  
-  
-  
   ArrayList<Double> temp = new ArrayList<Double>(prob); //copy dari prob untuk roulette wheel
   ArrayList<Double> cumSum = new ArrayList<Double>();
   double rand;

@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
 float rho = 1.0;
 int alpha=1;
 int beta =1;
+float cfire = 0.0; 
 //
 
 
@@ -37,8 +38,8 @@ Node oldExitNode;
 PImage bg;
 
 void settings() {
-  //size(704, 492); //emergency.png
-  size(1200, 675); //basement.png
+  size(704, 492); //emergency.png
+  //size(1200, 675); //basement.png
   //800x543
   //704x492
   //1200x675
@@ -48,8 +49,8 @@ void setup() {
   restart();
   cp5 = new ControlP5(this);
   cf = new ControlFrame(this,300,675,"Controls");
-  bg = loadImage("asset/basement_.png");
-  //bg = loadImage("asset/emergency.png");
+  //bg = loadImage("asset/basement_.png");
+  bg = loadImage("asset/emergency.png");
   surface.setLocation(320,10);
   noCursor();  
   currTrack = new Shape();
