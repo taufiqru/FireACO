@@ -7,7 +7,8 @@ void cekCollision(Fire f){
     {
       println("Bersinggungan dengan : "+t.label);
       Tracks.get(i).blockedbyfire = true;
-      println(Tracks.get(i).blockedbyfire);
+      f.block.add(t);
+      resetBestRoute();
     }
     i++;
   }
@@ -18,8 +19,14 @@ void hapusApi(float x,float y){
     if(pointRect(x,y,f.x,f.y,f.w,f.h)){
       f.status=false;
       for(int i =f.block.size()-1;i>=0;i--){
-        f.block.get(i).blockedbyfire=false;
+        for(Track t:Tracks){
+          if(t.label==f.block.get(i).label){
+            println("Api pada rute-"+t.label +" padam");
+            t.blockedbyfire=false;
+          }
+        }
         f.block.remove(i);
+        resetBestRoute();
       }
     }
   }

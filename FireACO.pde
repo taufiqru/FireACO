@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 float rho = 1.0;
 int alpha=1;
 int beta =1;
-float cfire = 0.0; 
+float cfire = 1.0; 
 //
 
 
@@ -56,7 +56,6 @@ void setup() {
   currTrack = new Shape();
   currTrack.setFill(false);
   quantizedMouse = new Point(quantize(mouseX, 0, cellSqrt), quantize(mouseY, 0, cellSqrt));
-
 }
 
 void draw() {
@@ -126,7 +125,6 @@ void mousePressed() {
           cekCollision(f);
           selectFire = false;
         } else if(deleteFire){
-          println(" Api dihapus");
           hapusApi(quantizedMouse.x,quantizedMouse.y);
           deleteFire = false;
         }

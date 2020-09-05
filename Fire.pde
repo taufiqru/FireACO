@@ -16,14 +16,20 @@ class Fire{
   int h = 20;
   float x,y;
   boolean status=true;
+  PImage img;
+  
   Fire(float x, float y){
     this.x = x;
     this.y = y;
+    img = loadImage("asset/fire.png");
   }
   
   void display(){
-    fill(255,0,0);
+    noStroke();
+    noFill();
     rectMode(CENTER);
-    rect(x,y,w,h);
+    rect(x,y,img.width/3,img.height/3);
+    imageMode(CENTER);
+    image(img,x,y,img.width/3,img.height/3);
   }
 }

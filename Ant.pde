@@ -1,5 +1,5 @@
  ArrayList<Ant> Ants = new ArrayList<Ant>();
-
+ String asset[] = {"1.png","2.png","3.png","4.png","5.png"};
 
 class Ant {
   ArrayList<Node> tabuList = new ArrayList<Node>();
@@ -20,7 +20,7 @@ class Ant {
     this.pt = new Point(0, 0);  
     this.tabuList = tabuList;
     this.tabuTracks = tabuTracks;
-    img = loadImage("asset/1.png");
+    img = loadImage("asset/"+asset[(int)random(0,4)]);
   }
   
  

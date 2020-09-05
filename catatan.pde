@@ -17,11 +17,12 @@ help
 multiple exit & entry point [ok]
 Peta (real case)
 multiple best route from different starting point [ok]
+fire[ok]
+updatebestroute berdasar api[ok]
 
 
 
 Future Updates :
-fire!
 update preset
 more cartoon obj
 

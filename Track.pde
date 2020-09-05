@@ -34,8 +34,7 @@ ArrayList<Integer> searchTrack(Node x){
   for(Track t:Tracks){
     if(t.startX==x.x && t.startY == x.y){
       if(searchNodeTabu(t.endX,t.endY)==-1){  //search node (t.endX && t.endY) yang belum ada di tabu list 
-        println("ada api? "+t.blockedbyfire);
-        if(!t.blockedbyfire){
+        if(!checkFire(t)){
           listTrack.add(i);
         }
       }
@@ -48,15 +47,10 @@ ArrayList<Integer> searchTrack(Node x){
 Boolean checkFire(Track t){
   if(t.blockedbyfire){
     float rand = random(0.0,1.0);
-    
-    println("nilai random:"+rand+", nilai cfire :"+cfire);
-    
     if(rand<=cfire){
       return true;
     }
-  }else{
-    return false;
-  }
+  } 
   return false;
 }
 
@@ -116,8 +110,8 @@ class Track{
  }
  
  void drawBestRoute(){
-   stroke(0,255,0);
-   fill(0,255,0);
+   stroke(35,131,7);
+   fill(17,62,4);
    //strokeWeight(12);
   line(startX,startY,endX,endY);
  }

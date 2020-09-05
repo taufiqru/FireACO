@@ -128,3 +128,15 @@ void addShortestEachRoute(Node x){
     shortestEachRoute.add(data);
   }
 }
+
+void resetShortestEachRoute(){
+  for(Object ob[]:shortestEachRoute){
+    ob[1] = 99999.99;
+  }
+}
+
+void resetBestRoute(){
+  resetShortestEachRoute();
+  listOfBestRoute.clear();
+  bestRoutes.clear();
+}
