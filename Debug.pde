@@ -5,11 +5,8 @@ ArrayList<String> listOfBestRoute = new ArrayList<String>(); //daftar rute terce
 ArrayList<String> listOflabel = new ArrayList<String>(); //digunakan ketika preset
 ArrayList<String> saveLog = new ArrayList<String>(); //digunakan untuk save to txt
 ArrayList<Object[]> shortestEachRoute = new ArrayList<Object[]>(); //penampung jalur terpendek tiap rute
-
 ArrayList<Track> bestRoutes = new ArrayList<Track>(); //untuk visualisasi semua rute terbaik
-//Shape currBestRoute;
-  
-// Float shortestPath = 99999.0;
+ArrayList<String> savePreset = new ArrayList<String>(); //simpan rute 
 String bestRoute = "";
 
 
@@ -43,6 +40,18 @@ void saveToFile(){
   }
   saveStrings("aco_log.txt",record);
   println("Log Simulasi telah disimpan! (aco_log.txt)");
+}
+
+void saveThisPreset(){
+  String[] record = new String[savePreset.size()];
+  int i=0;
+  
+  for(String s:savePreset){
+    record[i] = s;
+    i++;
+  }
+  saveStrings("preset.txt",record);
+  println("Setting disimpan! (preset.txt)");
 }
 
 void logTracks(Ant x){

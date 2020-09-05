@@ -58,6 +58,8 @@ void addTrack(Track x){
   if(searchTrack(x)==-1){
     if(!(x.startX==x.endX && x.startY==x.endY)){
       Tracks.add(x);
+      String s = "{"+x.endX+","+x.endY+","+x.startX+","+x.startY+","+x.distance+"},";
+      savePreset.add(s);
       Track reverseNewTrack = new Track(Character.toString(label),x.endX,x.endY,x.startX,x.startY,x.distance,"reversed");
       Tracks.add(reverseNewTrack);
     }

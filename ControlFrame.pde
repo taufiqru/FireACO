@@ -155,13 +155,23 @@ class ControlFrame extends PApplet{
     
    // cp5 = new ControlP5(this);
     
-    int[][] data = {
-      {325,275,625,75,4},
-      {325,275,625,375,1},
-      {625,375,925,225,3},
-      {625,75,925,225,1},
-      {625,75,625,375,1},
-      {325,275,925,225,7},
+    float[][] data = {
+      {230.0,245.0,460.0,245.0,4.0},
+      {80.0,240.0,230.0,245.0,2.0},
+      {10.0,240.0,80.0,240.0,1.0},
+      {460.0,400.0,460.0,245.0,3.0},
+      {305.0,400.0,460.0,400.0,2.0},
+      {85.0,400.0,305.0,400.0,6.0},
+      {80.0,240.0,85.0,400.0,3.0},
+      {80.0,100.0,80.0,240.0,3.0},
+      {160.0,95.0,80.0,100.0,2.0},
+      {460.0,95.0,160.0,95.0,5.0},
+      {460.0,245.0,460.0,95.0,3.0},
+      {620.0,400.0,460.0,400.0,2.0},
+      {620.0,95.0,620.0,400.0,6.0},
+      {620.0,95.0,460.0,95.0,2.0},
+      {560.0,15.0,620.0,95.0,1.0},
+      {565.0,470.0,620.0,400.0,1.0},
     };
     
     for(int i=0;i<data.length;i++){
@@ -173,7 +183,7 @@ class ControlFrame extends PApplet{
       addTrack(newTrack);
     }
     
-    Nodes.get(searchNode(925,225)).tipe = "EXIT";
+    //Nodes.get(searchNode(925,225)).tipe = "EXIT";
   }
   
  void mousePressed(){
@@ -188,7 +198,7 @@ class ControlFrame extends PApplet{
    }
    if(help.isPressed()){
      String txt = "->Klik Kanan untuk membuat Node \n->Untuk membuat Rute, Pilih Node menggunakan Klik Kiri Kemudian Klik Kiri kembali pada lokasi lain";
-     txt = txt + "\n->Tekan tombol 'X', untuk menentukan titik EXIT (tujuan akhir)";
+     txt = txt + "\n->Tekan tombol 'X', untuk menentukan titik EXIT (Tujuan Akhir)";
      txt = txt + "\n->Tekan tombol 'S', untuk menentukan titik MULAI (Titik Mulai)";
      txt = txt + "\n->Tekan tombol 'F', untuk menentukan titik Api ";
      txt = txt + "\n->Tekan tombol 'D', untuk hapus titik Api";

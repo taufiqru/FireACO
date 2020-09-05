@@ -190,6 +190,9 @@ void keyPressed(){
         print("Hapus Titik Api :");
         deleteFire = true;
       } 
+       if(key == 'p'){
+         saveThisPreset();
+       }
     }
   
 }
@@ -312,8 +315,8 @@ void restart(){
 }
 
 void removeCP5(){
-  for(String t:listOflabel){
-    cp5.remove(t);
+  for(int i=listOflabel.size()-1;i>=0;i--){
+    cp5.remove(listOflabel.get(i));
   }
   listOflabel.clear();
 }
