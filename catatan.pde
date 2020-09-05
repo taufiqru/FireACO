@@ -19,12 +19,12 @@ Peta (real case)
 multiple best route from different starting point [ok]
 fire[ok]
 updatebestroute berdasar api[ok]
+character [ok]
 
 
 
 Future Updates :
 update preset
-more cartoon obj
 
 Pending :
 TSP [dak jadi, cukup sampe exit]

@@ -190,7 +190,9 @@ class ControlFrame extends PApplet{
      String txt = "->Klik Kanan untuk membuat Node \n->Untuk membuat Rute, Pilih Node menggunakan Klik Kiri Kemudian Klik Kiri kembali pada lokasi lain";
      txt = txt + "\n->Tekan tombol 'X', untuk menentukan titik EXIT (tujuan akhir)";
      txt = txt + "\n->Tekan tombol 'S', untuk menentukan titik MULAI (Titik Mulai)";
-     txt = txt + "\n->Untuk menambahkan semut, tekan tombol Spasi\n->Tombol Preset digunakan untuk menampilkan skenario default";
+     txt = txt + "\n->Tekan tombol 'F', untuk menentukan titik Api ";
+     txt = txt + "\n->Tekan tombol 'D', untuk hapus titik Api";
+     txt = txt + "\n->Untuk menambahkan Agent, tekan tombol Spasi\n->Tombol Preset digunakan untuk menampilkan skenario default";
      showMessageDialog(null,txt,"How To Use",PLAIN_MESSAGE);
    }
  }
