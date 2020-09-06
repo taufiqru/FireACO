@@ -33,7 +33,7 @@ class Ant {
     }
   }
   
-  void draw(PGraphics g) {
+  void display(PGraphics g) {
       float v = u;
       track.trace(pt, v);
      // stroke(0);

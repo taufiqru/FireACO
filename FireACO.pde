@@ -31,11 +31,13 @@ Boolean selectExit = false;
 Boolean selectEntry = false;
 Boolean selectFire = false;
 Boolean deleteFire = false;
+Boolean flag = true;
 Node selected;
 char label = 'A';
 int labelNode = 1;
 Node oldExitNode;
 PImage bg;
+
 
 void settings() {
   size(704, 492); //emergency.png
@@ -63,40 +65,42 @@ void draw() {
   drawGrid(cellSqrt);
   drawDot(5, color(0), mouseX, mouseY);
   drawDot(10, color(0), quantizedMouse.x, quantizedMouse.y);
-  
-  currTrack.draw(g);
-  for (Shape track : tracks) {
-    track.draw(g); 
-  }
-  
-  for (Node n : Nodes) {
-    n.draw();
-  }
-  
-  for (Track t : Tracks) {
-   if(t.tipe=="origin"){
-    t.draw();
-    t.updateString();
-   }
-  }
-  
-  for (Track t : bestRoutes) {
-    t.drawBestRoute();
-  }
-  
-  displayFire();
-  
-  for (Ant t : Ants) {
-    if(t.finish){
-     if(t.announce==false){
-      // println("semut-"+Ants.indexOf(t)+" selesai!");
-       t.announce=true;
-      }
-    }else{
-      t.step();
-      t.draw(g);
+  if(flag){
+    
+    currTrack.draw(g);
+    for (Shape track : tracks) {
+      track.draw(g); 
     }
-  }
+    
+    for (Node n : Nodes) {
+      n.display();
+    }
+    
+    for (Track t : Tracks) {
+     if(t.tipe=="origin"){
+      t.display();
+      t.updateString();
+     }
+    }
+    
+    for (Track t : bestRoutes) {
+      t.drawBestRoute();
+    }
+    
+    displayFire();
+    
+    for (Ant t : Ants) {
+      if(t.finish){
+       if(t.announce==false){
+        // println("semut-"+Ants.indexOf(t)+" selesai!");
+         t.announce=true;
+        }
+      }else{
+        t.step();
+        t.display(g);
+      }
+    }
+  } 
 }
 
 void mouseMoved() {
@@ -195,6 +199,11 @@ void keyPressed(){
       } 
        if(key == 'p'){
          saveThisPreset();
+       }
+       if(key == 'r'){
+         flag=false;
+         reset();
+         flag=true;
        }
     }
   
@@ -310,6 +319,14 @@ float inputDistance(){
       
   } while (!input.matches("^[0-9]*$"));
   return parseInt(string);
+}
+
+void reset(){
+   if(!flag){
+     listCP5();
+     restart();
+     removeCP5();
+   }
 }
 
 void restart(){

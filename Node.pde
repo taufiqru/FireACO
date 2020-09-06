@@ -62,7 +62,7 @@ class Node{
     this.tipe = tipe;
   }
   
-  void draw(){
+  void display(){
       stroke(0);
       if(tipe=="EXIT"){
         fill(0,0,255);

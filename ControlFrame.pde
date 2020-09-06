@@ -188,21 +188,22 @@ class ControlFrame extends PApplet{
   
  void mousePressed(){
    if(preset.isPressed()){
-     listCP5();
-     restart();
-     removeCP5();
+     flag=false;
+     reset();
      loadDataPreset();
+     flag=true;
    }
    if(savelog.isPressed()){
      saveToFile();
    }
    if(help.isPressed()){
-     String txt = "->Klik Kanan untuk membuat Node \n->Untuk membuat Rute, Pilih Node menggunakan Klik Kiri Kemudian Klik Kiri kembali pada lokasi lain";
+     String txt = "->Klik Kanan (RIGHT CLICK) untuk membuat Node \n->Untuk membuat Rute, Pilih Node menggunakan Klik Kiri (LEFT CLICK), Kemudian Klik Kiri kembali pada lokasi lain";
      txt = txt + "\n->Tekan tombol 'X', untuk menentukan titik EXIT (Tujuan Akhir)";
-     txt = txt + "\n->Tekan tombol 'S', untuk menentukan titik MULAI (Titik Mulai)";
-     txt = txt + "\n->Tekan tombol 'F', untuk menentukan titik Api ";
-     txt = txt + "\n->Tekan tombol 'D', untuk hapus titik Api";
-     txt = txt + "\n->Untuk menambahkan Agent, tekan tombol Spasi\n->Tombol Preset digunakan untuk menampilkan skenario default";
+     txt = txt + "\n->Tekan tombol 'S', untuk menentukan titik MULAI/START (Titik Mulai)";
+     txt = txt + "\n->Tekan tombol 'F', untuk menentukan titik Api (FIRE) ";
+     txt = txt + "\n->Tekan tombol 'D', untuk hapus titik Api (DELETE)";
+     txt = txt + "\n->Tekan tombol 'R', untuk reset";
+     txt = txt + "\n->Untuk menambahkan Agent, tekan tombol SPACEBAR\n->Tombol Preset digunakan untuk menampilkan skenario default";
      showMessageDialog(null,txt,"How To Use",PLAIN_MESSAGE);
    }
  }

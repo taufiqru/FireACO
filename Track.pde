@@ -112,7 +112,7 @@ class Track{
                     ;
  }
  
- void draw(){
+ void display(){
   stroke(0,0,0,50);
   strokeWeight(3);
   line(startX,startY,endX,endY);
