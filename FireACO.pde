@@ -207,40 +207,50 @@ void chooseTrack(Node start){
     if(start.tipe != "EXIT"){
       result = searchTrack(start); // hasil -> list daftar track yang dapat dilalui
       if(result.size()>0){
+        int choose;
+        int val = searchExit(result);
         //int choose = int(random(0,result.size())); // pilih secara random gak pake ACO
-        int choose = algoACO(result); ///formula ACO menentukan track yang akan dilalui
+        if(val!=-98){
+          choose = val;
+        }else{
+          choose = algoACO(result); ///formula ACO menentukan track yang akan dilalui
+        }
         Track x = Tracks.get(result.get(choose)); //track yang dilalui sudah ditentukan
         algoStep.add("memilih jalur :"+x.label); //debug
         tabuTracks.add(x);
         int chooseNode = searchNode(x.endX,x.endY);
         chooseTrack(Nodes.get(chooseNode)); //rekursif sampai ketemu node ujung
       }else{
-          Ant a = new Ant(currTrack,tabuList,tabuTracks);
-          Ants.add(a);
-          //debug
+          if(tabuList.get(tabuList.size()-1).tipe=="EXIT"){
+            Ant a = new Ant(currTrack,tabuList,tabuTracks);
+            Ants.add(a);
+            //debug
             //printAlgoStep();
             logTracks(a);
             printLogTracks();
             resetLog();
-          //
-          updatePheromone(a.tabuTracks,a.totalDistance());//update feromon
-          tracks.add(currTrack);
+            //
+            updatePheromone(a.tabuTracks,a.totalDistance());//update feromon
+            tracks.add(currTrack);
+          }
           currTrack = new Shape();
           currTrack.setFill(false);
           tabuList.clear();
           tabuTracks.clear();
         }
     }else{
-      Ant a = new Ant(currTrack,tabuList,tabuTracks);
-      Ants.add(a);
-       //debug
-      //printAlgoStep();
-      logTracks(a);
-      printLogTracks();
-      resetLog();
-      //
-      updatePheromone(a.tabuTracks,a.totalDistance());//update feromon
-      tracks.add(currTrack);
+      if(tabuList.get(tabuList.size()-1).tipe=="EXIT"){
+            Ant a = new Ant(currTrack,tabuList,tabuTracks);
+            Ants.add(a);
+            //debug
+            //printAlgoStep();
+            logTracks(a);
+            printLogTracks();
+            resetLog();
+            //
+            updatePheromone(a.tabuTracks,a.totalDistance());//update feromon
+            tracks.add(currTrack);
+      }
       currTrack = new Shape();
       currTrack.setFill(false);
       tabuList.clear();
@@ -300,12 +310,11 @@ float inputDistance(){
 }
 
 void restart(){
-    
-    Nodes.clear();
-    Tracks.clear();
     Ants.clear();
-    bestRoutes.clear();
+    Tracks.clear();
+    Nodes.clear();
     tracks.clear();
+    bestRoutes.clear();
     tabuTracks.clear();
     tabuList.clear();
     label = 'A';

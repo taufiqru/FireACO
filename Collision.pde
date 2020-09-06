@@ -5,7 +5,7 @@ void cekCollision(Fire f){
   for(Track t: Tracks){
     if(lineRect(t.startX,t.startY,t.endX,t.endY,f.x,f.y,f.w,f.h))
     {
-      println("Bersinggungan dengan : "+t.label);
+      println("Api muncul pada rute : "+t.label);
       Tracks.get(i).blockedbyfire = true;
       f.block.add(t);
       resetBestRoute();

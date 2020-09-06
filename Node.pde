@@ -41,6 +41,14 @@ int searchNodeTabu(float x,float y){
   return -1;
 }
 
+boolean isExit(float x, float y){
+  Node n = Nodes.get(searchNode(x,y));
+  if(n.tipe=="EXIT"){
+    return true;
+  }
+  return false;
+}
+
 class Node{
   String label;
   float x,y;

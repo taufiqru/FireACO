@@ -44,6 +44,19 @@ ArrayList<Integer> searchTrack(Node x){
   return listTrack;
 }
 
+int searchExit(ArrayList<Integer> arr){
+  Track curr;
+  int count=0;
+  for(int i: arr){
+    curr = Tracks.get(i);
+    if(isExit(curr.endX,curr.endY)){
+      return count;
+    }
+    count++;
+  }
+  return -98;
+}
+
 Boolean checkFire(Track t){
   if(t.blockedbyfire){
     float rand = random(0.0,1.0);
