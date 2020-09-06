@@ -86,7 +86,6 @@ void draw() {
   
   displayFire();
   
-  //if(finish){
   for (Ant t : Ants) {
     if(t.finish){
      if(t.announce==false){
@@ -98,7 +97,6 @@ void draw() {
       t.draw(g);
     }
   }
-  //}
 }
 
 void mouseMoved() {
@@ -310,17 +308,41 @@ float inputDistance(){
 }
 
 void restart(){
-    Ants.clear();
-    Tracks.clear();
-    Nodes.clear();
-    tracks.clear();
+    removeAnts(Ants);
+    removeTracks(Tracks);
+    removeNodes(Nodes);
+    removeTrack(tracks);
+    entryPoint.clear();
+    saveLog.clear();
     bestRoutes.clear();
     tabuTracks.clear();
     tabuList.clear();
     label = 'A';
     labelNode = 1;
-    //shortestPath = 99999.0;
-   
+}
+
+void removeTrack(ArrayList<Shape> arr){
+  for(int i=arr.size()-1;i>=0;i--){
+    arr.remove(i);
+  }
+}
+
+void removeAnts(ArrayList<Ant> arr){
+  for(int i=arr.size()-1;i>=0;i--){
+    arr.remove(i);
+  }
+}
+
+void removeTracks(ArrayList<Track> arr){
+  for(int i=arr.size()-1;i>=0;i--){
+    arr.remove(i);
+  }
+}
+
+void removeNodes(ArrayList<Node> arr){
+  for(int i=arr.size()-1;i>=0;i--){
+    arr.remove(i);
+  }
 }
 
 void removeCP5(){
