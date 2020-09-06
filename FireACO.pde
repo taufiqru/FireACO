@@ -167,10 +167,15 @@ void keyPressed(){
   if(key == CODED){
     }else{
       if(key == ' '){
-        algoStep.add("Step by step Semut-"+(Ants.size()+1)+":");
-        int rand = (int)random(0,entryPoint.size());
-        chooseTrack(Nodes.get(entryPoint.get(rand)));
-        addShortestEachRoute(Nodes.get(entryPoint.get(rand)));
+        if(entryPoint.size()<=0){
+          showMessageDialog(null,"Entry Point Belum Di Inisialisasi!","Perhatian!",ERROR_MESSAGE);
+        }else{
+          algoStep.add("Step by step Semut-"+(Ants.size()+1)+":");
+          int rand = (int)random(0,entryPoint.size());
+          chooseTrack(Nodes.get(entryPoint.get(rand)));
+          addShortestEachRoute(Nodes.get(entryPoint.get(rand)));
+        }
+        
       }
       if(key == 'x'){
         print("Pilih Exit Point : ");
